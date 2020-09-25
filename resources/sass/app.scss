@@ -1,0 +1,83 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+#video-svg {
+    position: relative;
+    background: rgba(240, 165, 0, 0.6);
+
+}
+
+#video-svg:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+#video-svg-img {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    height: 100%;
+}
+#tshirt-svg {
+    position: relative;
+    background: rgba(240, 165, 0, 0.6);
+
+}
+
+#tshirt-svg:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+#tshirt-svg-img {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    height: 100%;
+}
+
+#journal-svg {
+    position: relative;
+    background: rgba(207, 117, 0, 0.6);
+}
+
+#journal-svg:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+#journal-svg-img {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    height: 100%;
+}
+
+#shopping-basket-svg {
+    position: relative;
+    background: rgba(207, 117, 0, 0.6);
+
+}
+
+#shopping-basket-svg:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+#shopping-basket-svg-img {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    height: 100%;
+}
+
+
