@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a4e8d93f-ae1d-4c9d-8d28-2aafcd69636d" name="Default Changelist" comment="" />
+    <list default="true" id="a4e8d93f-ae1d-4c9d-8d28-2aafcd69636d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +19,9 @@
         <option value="composer.json" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -130,6 +135,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1hxmQaBztkiXKYjAWM8YFacj51X" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -170,12 +176,24 @@
       <updated>1600961102170</updated>
       <workItem from="1600961103879" duration="4233000" />
       <workItem from="1600986217037" duration="8466000" />
-      <workItem from="1600997882588" duration="8135000" />
+      <workItem from="1600997882588" duration="8712000" />
     </task>
+    <task id="LOCAL-00001" summary="official project created">
+      <created>1601007174883</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1601007174883</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="official project created" />
+    <option name="LAST_COMMIT_MESSAGE" value="official project created" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1325" y="357" key="#File_Watchers" timestamp="1600994988945">
