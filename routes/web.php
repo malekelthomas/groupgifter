@@ -24,3 +24,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/chooseproducts',function(){
+    return view('choose-products');
+});
+
+Route::get('/choosecategories', function(){
+    return view('choose-categories');
+});
