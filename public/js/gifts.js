@@ -83,7 +83,7 @@ async function fetchProducts(keyword){
     categoriesClicked.push(clickVal)
     }
     console.log(categoriesClicked)
-    if ($(element).css("border-top-color") == "rgb(0, 0, 0)"){
+    if ($(element).css("border-top-color") == "rgb(255, 255, 255)"){
       $(element).css("border", "3px solid rgba(240, 165, 0, 0.698)")
       //var url_imgLink= $(this).attr('value')+" "+$(this).attr('src');
       //$(`#products-images-form :input[value="${url_imgLink}"]`).val(`${url_imgLink} checked`)
@@ -97,8 +97,38 @@ async function fetchProducts(keyword){
     }
     
   }
+
+
   
-  var pro
+  
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var ellipses = document.getElementsByClassName("ellipse");
+  console.log(ellipses);
+  var dots = document.getElementsByClassName("dot");
+  if (n > ellipses.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = ellipses.length}
+    for (i = 0; i < ellipses.length; i++) {
+      ellipses[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+  ellipses[slideIndex-1].style.display = "block";
+  //dots[slideIndex-1].className += " active";
+}
+
   jQuery(function (){
     var checkboxes = $("#categories");
     var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};

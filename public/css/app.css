@@ -11055,7 +11055,8 @@ a.text-dark:focus {
 }
 
 #category-ellipses {
-  color: #fff;
+  position: relative;
+  background: #fff;
 }
 
 .choose-cats {
@@ -11073,95 +11074,10 @@ a.text-dark:focus {
   position: absolute;
 }
 
-#ellipse1 {
-  position: absolute;
-  border-radius: 500px;
-  background-color: rgba(196, 196, 196, 0.6000000238);
-  opacity: 1;
-  width: 115px;
-  height: 150px;
-  left: 287px;
-  top: 399px;
-}
-
-#ellipse2 {
-  border-radius: 500px;
-  background-color: rgba(196, 196, 196, 0.6000000238);
-  opacity: 1;
-  width: 135px;
-  height: 150px;
-  position: absolute;
-  left: 457px;
-  top: 474px;
-}
-
-#ellipse3 {
-  border-radius: 500px;
-  background-color: rgba(196, 196, 196, 0.6000000238);
-  opacity: 1;
-  width: 180px;
-  height: 180px;
-  position: absolute;
-  left: 647px;
-  top: 477px;
-}
-
-#ellipse4 {
-  border-radius: 500px;
-  background-color: rgba(196, 196, 196, 0.6000000238);
-  opacity: 1;
-  width: 135px;
-  height: 150px;
-  left: 872px;
-  top: 474px;
-  position: absolute;
-}
-
-#ellipse5 {
-  border-radius: 500px;
-  background-color: rgba(196, 196, 196, 0.6000000238);
-  opacity: 1;
-  width: 115px;
-  height: 150px;
-  left: 1038px;
-  top: 399px;
-  position: absolute;
-}
-
-#ellipse6 {
-  transform: rotate(0deg);
-  border-radius: 500px;
-  background-color: rgba(196, 196, 196, 0.6000000238);
-  opacity: 1;
-  width: 115.0000076294px;
-  height: 125.0000076294px;
-  position: absolute;
-  left: 870px;
-  top: 286px;
-}
-
-#ellipse7 {
-  transform: rotate(0deg);
-  border-radius: 500px;
-  background-color: rgba(196, 196, 196, 0.6000000238);
-  opacity: 1;
-  width: 125.0000076294px;
-  height: 125.0000076294px;
-  position: absolute;
-  left: 657px;
-  top: 274px;
-}
-
-#ellipse8 {
-  transform: rotate(0deg);
-  border-radius: 500px;
-  background-color: rgba(196, 196, 196, 0.6000000238);
-  opacity: 1;
-  width: 115.0000076294px;
-  height: 125.0000076294px;
-  position: absolute;
-  left: 454px;
-  top: 286px;
+.ellipse {
+  display: none;
+  padding: 80px;
+  text-align: center;
 }
 
 div > p {
@@ -11172,11 +11088,8 @@ div > p {
 .next-button-button {
   background-color: rgba(244, 244, 244, 0.6000000238);
   opacity: 1;
-  position: absolute;
   width: 304px;
   height: 62px;
-  left: 592px;
-  top: 803px;
   font-family: Signika;
   font-style: normal;
   font-weight: normal;

@@ -2,40 +2,40 @@
 
 @section('content')
     <div class="container">
-        <div class="prev-button"></div>
-        <hr class="prev-line1">
-        <hr class="prev-line2">
+        
+        
         <!-- Circles start left, counter-clockwise-->
         <div id="category-ellipses">
+          <div class="prev-button" onclick="plusSlides(-1)"></div>
+            <hr class="prev-line1">
+            <hr class="prev-line2">
 
-        <?php
-          $categories = DB::select("SELECT * FROM cat LIMIT 0,8");
-          //$result = mysqli_query($conn, $sql);
-          if(count($categories) > 0){
-            foreach($categories as $category){
-                echo $category->id."<br>";
-                }
-            }
-        /* ?>
-          <div style="vertical-align:middle" id="ellipse<?php echo $id?>" class="ellipse">
-            <input type="hidden" value=<?php echo $row['properties_key']?> name="category"><p class="paragraph-ellipse-text"><?php echo $row['properties_key'];?></p>
-          </div>
           <?php
-            }
-        }
-        else {
-          echo "No categories";
-        } */
+            $categories = DB::select("SELECT * FROM cat");
+            //$result = mysqli_query($conn, $sql);
+            if(count($categories) > 0){
+              foreach($categories as $category){
           ?>
+              <div style="vertical-align:middle" id="ellipse<?php echo $category->id;?>" class="ellipse">
+                  <input type="hidden" value=<?php echo $category->properties_key;?> name="category">
+                  <p class="paragraph-ellipse-text"><?php echo $category->properties_key;?></p>
+              </div>
+          <?php
+              }
+            }
+            else {
+              echo "No categories";
+            }
+          ?>
+          <div class="next-button" onclick="plusSlides(1)"></div>
+            <hr class="next-line1">
+            <hr class="next-line2">
         </div>
-        <div id="seeMore" class="next-button"></div>
-        <hr class="next-line1">
-        <hr class="next-line2">
     </div>
     <div class="get-started"></div>
       <span class="choose-cats">Choose Categories</span>
     </div>
-    <div class="next-button-page">
+    <div class="row justify-content-center">
       <button class="next-button-button" onclick=submitCategories(event);>NEXT</button>
     </div>
 
