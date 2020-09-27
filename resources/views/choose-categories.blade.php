@@ -1,14 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+
+    <div class="w-100" style="height: 100px;"></div>
+    <div class="w-100" style="height: 100px;"></div>
+    <div class="w-100" style="height: 100px;"></div>
+    <div class="row justify-content-center">
         
         
         <!-- Circles start left, counter-clockwise-->
-        <div id="category-ellipses">
-          <div class="prev-button" onclick="plusSlides(-1)"></div>
+        <div class="prev-button col-2" onclick="plusSlides(-1)">
             <hr class="prev-line1">
             <hr class="prev-line2">
+        </div>
+        <div class="category-ellipses col-2">
 
           <?php
             $categories = DB::select("SELECT * FROM cat");
@@ -27,14 +32,20 @@
               echo "No categories";
             }
           ?>
-          <div class="next-button" onclick="plusSlides(1)"></div>
+          
+        </div>
+        <div class="next-button col-2" onclick="plusSlides(1)">
             <hr class="next-line1">
             <hr class="next-line2">
         </div>
     </div>
-    <div class="get-started"></div>
-      <span class="choose-cats">Choose Categories</span>
+    <div class="w-100" style="height: 100px;"></div>
+    <div class="row justify-content-center">
+      <div>
+        <p class="choose-cats">Choose Categories</p>
+      </div>
     </div>
+    <div class="w-100" style="height: 100px;"></div>
     <div class="row justify-content-center">
       <button class="next-button-button" onclick=submitCategories(event);>NEXT</button>
     </div>
