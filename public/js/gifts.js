@@ -43,6 +43,7 @@ async function fetchProducts(keyword){
       products[`${categoriesClicked[i]}`] = await fetchProducts(categoriesClicked[i]);
     }
     console.log(products);
+    
     $.ajax({
       type:"POST",
       headers: {
@@ -52,6 +53,7 @@ async function fetchProducts(keyword){
       data: products,
       success: function(data){
         console.log(data);
+        window.location = '/chooseproducts'
       },
       error: function(data){
         console.log("error: ",data)
