@@ -13,13 +13,12 @@
             if (is_array($descriptor)){
                 foreach($descriptor as $details){
                     foreach($details as $product){
-                        if (is_array($product) == false) {
+                        if (is_array($product) == false) { //don't want to traverse if the key's value is an array
                         if(strpos($product,"https") !== false){
-                            if(strpos($product, ".jpg") == false){
+                            if(strpos($product, ".jpg") == false){ //is a regular url not img link
                                 if (is_array($product) == false){
-                                    echo "$key,$product\n";
-                                    if (!isset($img_arr["$key"])){
-                                        $img_arr["$key"] = array();
+                                    if (!isset($img_arr["$key"])){ //checks if array index has been set
+                                        $img_arr["$key"] = array(); 
                                         }
                                     $img_arr[$key][$i] = "$product";
 
