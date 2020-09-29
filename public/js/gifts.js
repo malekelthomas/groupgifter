@@ -5,10 +5,11 @@ async function fetchProducts(keyword){
     {
       "method": "GET",
       "headers": {
-        "x-rapidapi-host": "amazon-product-reviews-keywords.p.rapidapi.com",
-        "x-rapidapi-key": "b40cb29b58mshef93c5cf5e102a1p1a7b7fjsn090a508800d0"
+        "x-rapidapi-host":"amazon-product-reviews-keywords.p.rapidapi.com",
+        "x-rapidapi-key":"9c84970b7cmsh058c44f8d18fec6p1096c6jsn84399aedcce4"
       }
     })
+    console.log(response)
     let data = await response.json();
     //console.log(data);
     return data;
@@ -22,8 +23,8 @@ async function fetchProducts(keyword){
           "url": "https://amazon-product-reviews-keywords.p.rapidapi.com/categories?country=US",
           "method": "GET",
           "headers": {
-              "x-rapidapi-host": "amazon-product-reviews-keywords.p.rapidapi.com",
-              "x-rapidapi-key": "b40cb29b58mshef93c5cf5e102a1p1a7b7fjsn090a508800d0"
+              "x-rapidapi-host":"amazon-product-reviews-keywords.p.rapidapi.com",
+              "x-rapidapi-key":"9c84970b7cmsh058c44f8d18fec6p1096c6jsn84399aedcce4"
           }
       }
       console.log(settings);
@@ -44,14 +45,18 @@ async function fetchProducts(keyword){
     console.log(products);
     $.ajax({
       type:"POST",
-      url: "products.php",
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      url: "/products",
       data: products,
       success: function(data){
         console.log(data);
-        $('next-button-button').attr('disabled')
-        window.location.replace("groupgifter-choose_products.php");
+      },
+      error: function(data){
+        console.log("error: ",data)
       }
-    });
+    })
     }
   
   function submitProducts(){
@@ -83,7 +88,7 @@ async function fetchProducts(keyword){
     categoriesClicked.push(clickVal)
     }
     console.log(categoriesClicked)
-    if ($(element).css("border-top-color") == "rgb(255, 255, 255)"){
+    if ($(element).css("border-top-color") == "rgb(33, 37, 41)"){
       $(element).css("border", "3px solid rgba(240, 165, 0, 0.698)")
       //var url_imgLink= $(this).attr('value')+" "+$(this).attr('src');
       //$(`#products-images-form :input[value="${url_imgLink}"]`).val(`${url_imgLink} checked`)

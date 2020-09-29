@@ -32,3 +32,7 @@ Route::get('/chooseproducts',function(){
 Route::get('/choosecategories', function(){
     return view('choose-categories');
 });
+
+Route::post('/products', function(){
+    return view('products');
+});
