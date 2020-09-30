@@ -36,3 +36,7 @@ Route::get('/choosecategories', function(){
 Route::post('/products', function(){
     return view('products');
 });
+
+Route::post('/selectedproducts', function(){
+    return view('selected-products');
+});
