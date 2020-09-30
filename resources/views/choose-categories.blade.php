@@ -21,7 +21,7 @@
             if(count($categories) > 0){
               foreach($categories as $category){
           ?>
-              <div style="vertical-align:middle" id="ellipse<?php echo $category->id;?>" class="ellipse">
+              <div style="vertical-align:middle" id="ellipse<?php echo $category->id;?>" class="ellipse category">
                   <input type="hidden" value=<?php echo $category->properties_key;?> name="category">
                   <p class="paragraph-ellipse-text"><?php echo $category->properties_key;?></p>
               </div>

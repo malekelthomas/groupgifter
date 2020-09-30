@@ -24,7 +24,7 @@
                   foreach($products as $details){
                     //details - [product-url, product-img]
                       $links = preg_split("/[,]/", $details);?>
-                      <div style="vertical-align:middle; background-size:cover; background-position: center; background-image:url(<?php echo "{$links[1]}";?>); background-repeat:no-repeat;" id="ellipse<?php echo $i;?>" class="ellipse">
+                      <div style="vertical-align:middle; background-size:cover; background-position: center; background-image:url(<?php echo "{$links[1]}";?>); background-repeat:no-repeat;" id="ellipse<?php echo $i;?>" class="ellipse product">
                           <?php // echo "<img style = 'min-width:100%; min-height:100%;' value ='{$links[0]}' src={$links[1]}>"; ?>
                           <input type="hidden" name="products[]" value='<?php echo "{$categories}";//{$links[0]} {$links[1]}"?>'/>
                 </div><?php
