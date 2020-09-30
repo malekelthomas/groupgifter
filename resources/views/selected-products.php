@@ -3,9 +3,11 @@
 
 <?php
 
-$post = $_POST;
+$post = $_POST["products"];
 
-echo var_dump($post);
+foreach($post as $product => $categories){
+    echo "$product,$post[$product]\n";
+    }
 
 
 
