@@ -34,6 +34,7 @@ async function fetchProducts(keyword){
   }
   
   var categoriesClicked = [];
+  var productsClicked = {};
   
   async function submitCategories(e){
     e.preventDefault();
@@ -68,7 +69,7 @@ async function fetchProducts(keyword){
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
       type: 'POST',
-      data: {"products":categoriesClicked},
+      data: {"products":productsClicked},
       success: function (data){
         console.log(data,"submitted data")
       },
@@ -89,6 +90,35 @@ async function fetchProducts(keyword){
     categoriesClicked.push(clickVal)
     }
     console.log(categoriesClicked)
+    if ($(element).css("border-top-color") == "rgb(33, 37, 41)"){
+      $(element).css("border", "3px solid rgba(240, 165, 0, 0.698)")
+      //var url_imgLink= $(this).attr('value')+" "+$(this).attr('src');
+      //$(`#products-images-form :input[value="${url_imgLink}"]`).val(`${url_imgLink} checked`)
+      //console.log($('#products-images-form'))
+      return false;
+    }
+    console.log($(element).css("border-top-color"))
+    if ($(element).css("border-top-color") == "rgba(240, 165, 0, 0.698)"){
+      $(element).css("border", "none");
+      return false;
+    }
+    
+  }
+  
+  function storeProductsClicked(element){
+    var clickVal = $(element).children('input').val()+"";
+    if(productsClicked.hasOwnProperty(clickVal)){
+      if ($(element).css("border-top-color") == "rgba(240, 165, 0, 0.698)"){
+        productsClicked[clickVal]--;
+      }
+      else{
+        productsClicked[clickVal]++;
+      }
+    }
+    else{
+    productsClicked[clickVal]=1;
+    }
+    console.log(productsClicked)
     if ($(element).css("border-top-color") == "rgb(33, 37, 41)"){
       $(element).css("border", "3px solid rgba(240, 165, 0, 0.698)")
       //var url_imgLink= $(this).attr('value')+" "+$(this).attr('src');
@@ -143,9 +173,13 @@ function showSlides(n) {
     var tableBody = $("#selected-cats tbody");
     var seeProducts = $("#getProducts");
   
-    $(".ellipse").click(function(){
+    $(".ellipse.category").click(function(){
       console.log($(this).children('input').val())
       storeCategoriesClicked(this);
+    });
+    $(".ellipse.product").click(function(){
+      console.log($(this).children('input').val())
+      storeProductsClicked(this);
     });
     $.each(checkboxValues, function(key, val){
       $("#"+key).prop("checked", val);
