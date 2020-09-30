@@ -62,16 +62,15 @@ async function fetchProducts(keyword){
     }
   
   function submitProducts(){
-    var form = $("#products-images-form").serialize();
     $.ajax({
-      url: 'selected_products.php',
+      url: '/selectedproducts',
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
       type: 'POST',
-      data: form,
+      data: {"products":categoriesClicked},
       success: function (data){
-        console.log("form submitted")
-        document.getElementById("checkbox-table").style.display="block";
-        document.getElementById("products").style.display="none";
-        document.getElementById("back-to-selection").style.display="none";
+        console.log(data,"submitted data")
       },
       error: function (data){
         console.log("error")
@@ -122,7 +121,6 @@ function currentSlide(n) {
 function showSlides(n) {
   var i;
   var ellipses = document.getElementsByClassName("ellipse");
-  console.log(ellipses);
   var dots = document.getElementsByClassName("dot");
   if (n > ellipses.length) {slideIndex = 1}
     if (n < 1) {slideIndex = ellipses.length}
