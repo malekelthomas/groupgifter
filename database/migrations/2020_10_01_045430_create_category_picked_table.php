@@ -17,6 +17,7 @@ class CreateCategoryPickedTable extends Migration
             $table->id();
             $table->string('category');
             $table->integer('num_picked');
+            $table->foreignId('user_id')->constrained(); //uses convention to find table and column name referenced
             $table->timestamps();
         });
     }
