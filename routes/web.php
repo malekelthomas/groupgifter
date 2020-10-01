@@ -18,6 +18,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('register-step2', 'App\Http\Controllers\Auth\RegisterStep2Controller@showForm');
+Route::post('register-step2', 'App\Http\Controllers\Auth\RegisterStep2Controller@postForm')->name('register.step2');
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -44,3 +48,6 @@ Route::post('/products', function(){
 Route::post('/selectedproducts', function(){
     return view('selected-products');
 });
+
+
+Route::resource('group', 'App\Http\Controllers\GroupsController');
