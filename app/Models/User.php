@@ -42,6 +42,10 @@ class User extends Authenticatable
     ];
 
     public function categoryPicked(){
-        return $this->hasOne('App\Models\CategoryPicked');
+        return $this->hasOne('App\Models\PickedCategory');
+    }
+
+    public function groupIn(){
+        return $this->belongsTo('App\Models\Group');
     }
 }
