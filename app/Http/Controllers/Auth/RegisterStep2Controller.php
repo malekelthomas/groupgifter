@@ -20,6 +20,7 @@ class RegisterStep2Controller extends Controller
     public function postForm(Request $request)
     {
         auth()->user()->update($request->only(['group_name']));
+        return redirect()->route('home');
     }
 }
 
