@@ -1,7 +1,7 @@
 async function fetchProducts(keyword){
     var keyword = keyword
     var encoded_keyword = encodeURI(keyword)
-    let response =  await fetch("https://amazon-product-reviews-keywords.p.rapidapi.com/product/search?category=aps&country=US&keyword="+encoded_keyword, 
+    let response =  await fetch("https://amazon-product-reviews-keywords.p.rapidapi.com/product/search?category=aps&country=US&keyword="+encoded_keyword,
     {
       "method": "GET",
       "headers": {
@@ -14,8 +14,8 @@ async function fetchProducts(keyword){
     //console.log(data);
     return data;
     }
-  
-  
+
+
   function fetchCategories(){
       var settings = {
           "async": true,
@@ -32,19 +32,19 @@ async function fetchProducts(keyword){
           console.log(response);
       });
   }
-  
+
   var categoriesClicked = [];
   var productsClicked = {};
-  
+
   async function submitCategories(e){
     e.preventDefault();
     var products = {};
-  
+
     for(var i = 0; i < categoriesClicked.length; i++){
       products[`${categoriesClicked[i]}`] = await fetchProducts(categoriesClicked[i]);
     }
     console.log(products);
-    
+
     $.ajax({
       type:"POST",
       headers: {
@@ -61,7 +61,7 @@ async function fetchProducts(keyword){
       }
     })
     }
-  
+
   function submitProducts(){
     $.ajax({
       url: '/selectedproducts',
@@ -78,8 +78,8 @@ async function fetchProducts(keyword){
       }
     })
   }
-  
-  
+
+
   console.log(categoriesClicked);
   function storeCategoriesClicked(element){
     var clickVal = $(element).children('input').val()+"";
@@ -102,9 +102,9 @@ async function fetchProducts(keyword){
       $(element).css("border", "none");
       return false;
     }
-    
+
   }
-  
+
   function storeProductsClicked(element){
     var clickVal = $(element).children('input').val()+"";
     if(productsClicked.hasOwnProperty(clickVal)){
@@ -131,12 +131,12 @@ async function fetchProducts(keyword){
       $(element).css("border", "none");
       return false;
     }
-    
+
   }
 
 
-  
-  
+
+
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -172,7 +172,7 @@ function showSlides(n) {
     var numCats = 8;
     var tableBody = $("#selected-cats tbody");
     var seeProducts = $("#getProducts");
-  
+
     $(".ellipse.category").click(function(){
       console.log($(this).children('input').val())
       storeCategoriesClicked(this);
@@ -187,15 +187,15 @@ function showSlides(n) {
         $("#selected-cats > tbody:last-child").append(`<tr id = ${key}><td><input type="hidden" name="categories[]" value='${key}'/>${key}</td></tr>`);
       }
     });
-  
+
     function updateStorage(){
       $("input[type=checkbox]").each(function(){
         checkboxValues[this.id] = this.checked;
       })
       localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues))
     }
-  
-    checkboxes.on("change", "input[type=checkbox]", function(){ 
+
+    checkboxes.on("change", "input[type=checkbox]", function(){
       if (this.checked){
           var search = tableBody.find(`#${this.value}`);
           if (search.length == 0){ //length is number of matched elements
@@ -207,7 +207,7 @@ function showSlides(n) {
         }
         updateStorage();
     })
-  
+
     seeMore.on("click", function(){
       console.log("clicked")
       append_start = numCats;
@@ -220,9 +220,9 @@ function showSlides(n) {
         newNumCats: numCats
       })
     })
-  
+
     //document.getElementById("back-to-selection").style.display="none";
-  
+
     if(categoriesClicked.length >0){
       seeProducts.on("click", function (){
       $("img").on("click", function(){
@@ -240,24 +240,23 @@ function showSlides(n) {
       })
     });
     }
-  
+
     $("#back-button").on("click", function(){
       console.log("clicked")
       document.getElementById("checkbox-table").style.display="block";
       document.getElementById("products").style.display="none";
       document.getElementById("back-to-selection").style.display="none";
-  
+
     })
-    
-  
-    
-    
-    
+
+
+
+
+
   })
-  
-  
-  
-    
-  
-  
-  
+
+
+
+
+
+

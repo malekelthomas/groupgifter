@@ -42,9 +42,12 @@ class RegisterStep2Controller extends Controller
             $group = new group();
             $group->name = $request->input('group_name');
             $group->save();
+            auth()->user()->group_id = $group->id;
 
         }
-        auth()->user()->group_id = $group[0]->id; //set user group_id to created/existing group_id
+        else{
+            auth()->user()->group_id = $group[0]->id; //set user group_id to created/existing group_id
+        }
         auth()->user()->save();
         return redirect()->route('home');
     }
