@@ -27,7 +27,7 @@ $user = Auth::user();
            <a href="/choosecategories" style="color: #212529"><p style="margin-top: 10%; text-align:center;"><strong>CHOOSE PRODUCTS</strong></p></a>
         </div>
         <div class="user-home-btn col-sm-2 offset-sm-1 mb-3">
-            <a href="#" style="color: #212529"><p style="margin-top: 10%; text-align:center;"><strong>VIEW GROUPS</strong></p></a>
+            <a href="/group/<? echo $user->group_id ?>" style="color: #212529"><p style="margin-top: 10%; text-align:center;"><strong>VIEW GROUPS</strong></p></a>
         </div>
         <div class="user-home-btn col-sm-2 offset-sm-1 mb-3">
             <a href="#" style="color: #212529"><p style="margin-top: 10%; text-align:center;"><strong>CREATE GROUP</strong></p></a>
