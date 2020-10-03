@@ -11059,12 +11059,13 @@ a.text-dark:focus {
   height: 0px;
 }
 
-.choose-cats {
+.choose-cats,
+#user-name {
   color: rgba(240, 165, 0, 0.6999999881);
   opacity: 1;
   width: 271px;
   height: 38px;
-  text-align: left;
+  text-align: center;
   font-size: 32px;
   letter-spacing: 0;
   line-height: undefined;

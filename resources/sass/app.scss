@@ -110,6 +110,7 @@
 
 
 
+
 .next-button {
   margin-top: 5rem;
     position: relative;
@@ -175,12 +176,12 @@
     height: 0px;
   }
 
-.choose-cats {
+.choose-cats,#user-name {
     color:rgba(240.00000089406967, 165.00000536441803, 0, 0.699999988079071);
     opacity:1;
     width:271px;
     height:38px;
-    text-align:left;
+    text-align:center;
     font-size:32px;
     letter-spacing:0;
     line-height:undefined;
