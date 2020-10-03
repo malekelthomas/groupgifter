@@ -6,15 +6,13 @@
     <div class="w-100" style="height: 100px;"></div>
     <div class="w-100" style="height: 100px;"></div>
     <div class="row justify-content-center">
-        
-        
+
+
         <!-- Circles start left, counter-clockwise-->
         <div class="prev-button col-2" onclick="plusSlides(-1)">
             <hr class="prev-line1">
             <hr class="prev-line2">
         </div>
-        <div class="category-ellipses col-2">
-
           <?php
             $categories = DB::select("SELECT * FROM cat");
             //$result = mysqli_query($conn, $sql);
@@ -32,8 +30,6 @@
               echo "No categories";
             }
           ?>
-          
-        </div>
         <div class="next-button col-2" onclick="plusSlides(1)">
             <hr class="next-line1">
             <hr class="next-line2">

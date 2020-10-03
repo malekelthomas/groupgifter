@@ -14,7 +14,6 @@
             <hr class="prev-line1">
             <hr class="prev-line2">
         </div>
-        <div class="category-ellipses col-2">
 
           <?php
             if (!empty($_SESSION["images"])){
@@ -35,8 +34,6 @@
                 }
             }
           ?>
-
-        </div>
         <div class="next-button col-2" onclick="plusSlides(1)">
             <hr class="next-line1">
             <hr class="next-line2">
