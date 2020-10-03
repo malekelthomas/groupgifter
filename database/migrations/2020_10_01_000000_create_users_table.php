@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
         });
 
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('group_id')->nullable()->constrained();
+            $table->foreignId('group_id')->nullable()->constrained('groups_users');
         });
     }
 
