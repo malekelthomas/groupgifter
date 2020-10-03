@@ -2,7 +2,7 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
-
+$user = Auth::user();
 ?>
 @section('content')
 
@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Auth;
         <div id="profile_picture">
             <img src="/images/blank-profile-picture-png.png" alt="">
         </div>
+
+    </div>
+    <div class="w-100" style="height: 100px;"></div>
+    <div class="row justify-content-center">
+        <div><p id="user-name"><?echo $user->name;?></p></div>
     </div>
     <div class="w-100" style="height: 100px;"></div>
     <div class="row justify-content-center">
