@@ -23,7 +23,15 @@
     </div>
     <div class="w-100" style="height: 100px;"></div>
     <div class="row justify-content-center">
-        <a href="/login"><button class="get-started-button">GET STARTED HERE</button></a>
+        @if (Route::has('login'))
+            @auth
+            <a href="/user">
+
+        @else
+            <a href="/login">
+        @endif
+        @endif
+        <button class="get-started-button">GET STARTED HERE</button></a>
     </div>
 </div>
 @endsection
