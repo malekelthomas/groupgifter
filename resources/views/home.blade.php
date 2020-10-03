@@ -25,7 +25,7 @@
     <div class="row justify-content-center">
         @if (Route::has('login'))
             @auth
-            <a href="/user">
+            <a href="/userhome">
 
         @else
             <a href="/login">
