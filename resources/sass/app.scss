@@ -15,6 +15,7 @@
     line-height: 26px;
     text-align: center;
     color: rgba(26, 28, 32, 0.75);
+    border-radius: 25px;
   }
 
 #video-svg {
@@ -91,8 +92,25 @@
     height: 100%;
 }
 
+#profile_picture {
 
-.next-button { 
+    border-radius:50%;
+    background-color:rgba(240.00000089406967, 165.00000536441803, 0, 0.6000000238418579);
+    opacity:1;
+    width: 30%;
+
+}
+
+#profile_picture img{
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    height: 100%;
+}
+
+
+
+.next-button {
   margin-top: 5rem;
     position: relative;
     border-radius:500px;
@@ -101,7 +119,7 @@
     width:36px;
     height:36px;
   }
-  
+
   .next-line1{
     position: relative;
     width: 18.44px;
@@ -109,9 +127,9 @@
     transform: rotate(-139.39870646625258deg);
     opacity:1;
     border:1px solid rgba(0, 0, 0, 1);
-  
+
   }
-  .next-line2 { 
+  .next-line2 {
     position: relative;
     width: 18.03px;
     height: 0px;
@@ -119,11 +137,11 @@
     opacity:1;
     border:1px solid rgba(0, 0, 0, 1);
   }
-  
-  
-  
+
+
+
   .prev-button.col-2 {
-    position: relative; 
+    position: relative;
     border-radius:500px;
     background-color:rgba(240.00000089406967, 165.00000536441803, 0, 0.699999988079071);
     opacity:1;
@@ -131,15 +149,15 @@
     height:36px;
     margin-top: 5rem;
   }
-  
-  .prev-arrow { 
+
+  .prev-arrow {
     position:relative;
     opacity:1;
     width:15px;
     height:22px;
   }
-  
-  .prev-line1 { 
+
+  .prev-line1 {
     transform: rotate(146.309933421197deg);
     opacity:1;
     border:1px solid rgba(0, 0, 0, 1);
@@ -147,8 +165,8 @@
     width: 18.03px;
     height: 0px;
   }
-  
-  .prev-line2 { 
+
+  .prev-line2 {
     transform: rotate(40.6012935337474deg);
     opacity:1;
     border:1px solid rgba(0, 0, 0, 1);
@@ -157,7 +175,7 @@
     height: 0px;
   }
 
-.choose-cats { 
+.choose-cats {
     color:rgba(240.00000089406967, 165.00000536441803, 0, 0.699999988079071);
     opacity:1;
     width:271px;
@@ -167,7 +185,7 @@
     letter-spacing:0;
     line-height:undefined;
   }
- 
+
 .ellipse.product{
   background: #f4f4f4;
   display: none;
@@ -193,20 +211,31 @@
     margin-top: 10px;
     margin-bottom: 0;
   }
-  
+
   .next-button-button{
     background-color:rgba(244.0000006556511, 244.0000006556511, 244.0000006556511, 0.6000000238418579);
     opacity:1;
     width: 304px;
     height: 62px;
-    
+
     font-family: Nunito;
     font-style: normal;
     font-weight: normal;
     font-size: 32px;
     line-height: 39px;
-  
+
     color: #1A1C20;
+    border-radius: 25px;
   }
+
+  .user-home-btn {
+	background-color:rgba(244.0000006556511, 244.0000006556511, 244.0000006556511, 0.6000000238418579);
+	opacity:1;
+	width:304px;
+    height:62px;
+    font-family: Nunito;
+    border-radius: 25px;
+}
+
 
 

@@ -10907,6 +10907,7 @@ a.text-dark:focus {
   line-height: 26px;
   text-align: center;
   color: rgba(26, 28, 32, 0.75);
+  border-radius: 25px;
 }
 
 #video-svg {
@@ -10975,6 +10976,20 @@ a.text-dark:focus {
 }
 
 #shopping-basket-svg-img {
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  height: 100%;
+}
+
+#profile_picture {
+  border-radius: 50%;
+  background-color: rgba(240, 165, 0, 0.6000000238);
+  opacity: 1;
+  width: 30%;
+}
+
+#profile_picture img {
   width: 100%;
   text-align: center;
   vertical-align: middle;
@@ -11092,5 +11107,15 @@ div > hr {
   font-size: 32px;
   line-height: 39px;
   color: #1A1C20;
+  border-radius: 25px;
+}
+
+.user-home-btn {
+  background-color: rgba(244, 244, 244, 0.6000000238);
+  opacity: 1;
+  width: 304px;
+  height: 62px;
+  font-family: Nunito;
+  border-radius: 25px;
 }
 
