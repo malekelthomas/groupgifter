@@ -15,9 +15,9 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Group Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="group_name" type="text" class="form-control @error('name') is-invalid @enderror" name="group_name" value="{{ old('group_name') }}" autocomplete="group_name" autofocus>
+                                <input id="group_name" type="text" class="form-control @error('group_name') is-invalid @enderror" name="group_name" value="{{ old('group_name') }}" autocomplete="group_name" autofocus>
 
-                                @error('name')
+                                @error('group_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
