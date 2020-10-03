@@ -3,7 +3,7 @@
 <?php session_start(); ?>
 @section('content')
 
-<div class="w-100" style="height: 100px;"></div>
+    <div class="w-100" style="height: 100px;"></div>
     <div class="w-100" style="height: 100px;"></div>
     <div class="w-100" style="height: 100px;"></div>
     <div class="row justify-content-center">

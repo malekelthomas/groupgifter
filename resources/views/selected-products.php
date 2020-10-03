@@ -26,8 +26,11 @@ foreach($post as $product => $num_picked){
         $entry->save();
         echo "Didn't exist\n$entry\n";
     }
+
     else{
+
         DB::table('picked_categories')->where([['category', '=', $product],['user_id', '=', $id],])->increment('num_picked',$num_picked);
+
     }
 
     echo "$entry\n";
