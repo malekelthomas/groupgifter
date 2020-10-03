@@ -29,7 +29,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/user', function(){
+Route::get('/userhome', function(){
     return view('user-home');
 });
 
@@ -50,4 +50,4 @@ Route::post('/selectedproducts', function(){
 });
 
 
-Route::resource('group', 'App\Http\Controllers\GroupsController');
+Route::resource('group', 'App\Http\Controllers\GroupController');
