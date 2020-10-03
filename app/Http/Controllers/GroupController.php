@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Group;
+use App\Models\User;
 
-class GroupsController extends Controller
+class GroupController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -47,11 +49,11 @@ class GroupsController extends Controller
 
         $group->save();
         foreach($request->get('user_id') as $id){
-            $user = App\User::findOrFail($id);
+            $user = User::findOrFail($id);
             $user->group_id = $group->id;
             $user->save();
         }
-        
+
         return redirect('/')->with('success', 'Group has been added');
 
     }
@@ -65,6 +67,14 @@ class GroupsController extends Controller
     public function show($id)
     {
         //
+
+
+
+        return view('groups',['groups' => Group::findOrFail($id)]);
+
+
+
+
     }
 
     /**
