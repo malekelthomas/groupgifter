@@ -22,11 +22,12 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->string('group_name')->nullable();
             $table->timestamps();
+            $table->integer('group_list_id')->unsigned();
+            //$table->primary(['id','group_list_id']);
         });
 
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('group_id')->nullable()->constrained('groups_users');
-        });
+        DB::statement('ALTER TABLE  `users` DROP PRIMARY KEY , ADD PRIMARY KEY (  `id` ,  `group_list_id` ) ;');
+
     }
 
     /**
