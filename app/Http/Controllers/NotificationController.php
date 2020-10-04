@@ -19,20 +19,30 @@ class NotificationController extends Controller
         view('product');
     }
 
-    public function sendJoinRequestNotification(){
-        $userSchema = User::first();
+
+    /**
+     * Send notification to user with id
+     *
+     * @param  \Illuminate\Http\Request
+     * @return \Illuminate\Http\Response
+     */
+    public function sendJoinRequestNotification(Request $request){
+
+        $userSchema = User::find($request->member);
 
         $joinRequest = [
-            'name' => 'My Name',
-            'body' => 'MY Body',
-            'joinText' => 'My Text',
+            'name' => 'Maleke Thomas',
+            'body' => 'Made from my groupgifter app!',
+            'joinText' => 'Join Now!',
             'joinUrl' => url('/'),
             'joinRequest_id' => 1
         ];
 
         $userSchema->notify(new JoinRequest($joinRequest));
 
-        dd('Task completed!');
+        return redirect('/userhome');
+
+
 
 
 
