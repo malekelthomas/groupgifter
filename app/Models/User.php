@@ -42,7 +42,7 @@ class User extends Authenticatable
     ];
 
     public function categoryPicked(){
-        return $this->hasOne('App\Models\PickedCategory');
+        return $this->hasMany('App\Models\PickedCategory');
     }
 
     public function groupIn(){
