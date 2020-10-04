@@ -31,6 +31,17 @@ class GroupController extends Controller
     }
 
     /**
+     * Show the form for joining a resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function join()
+    {
+        return view('join-groups');
+    }
+
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -70,7 +81,6 @@ class GroupController extends Controller
     public function show($id)
     {
         //
-
         $groups = DB::table('groups')
             ->join('groups_users','groups.id','=','groups_users.group_id')
             ->join('user_groups_list', 'groups_users.group_id', '=','user_groups_list.group_id')
@@ -118,4 +128,51 @@ class GroupController extends Controller
     {
         //
     }
+
+
+    /**
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    public function search(Request $request){
+        //
+        $request->validate(['group_name' => ['required','alpha_dash', 'max:20', 'min:10']]);
+
+        $groups = DB::table('groups')
+            ->join('groups_users','groups.id','=','groups_users.group_id')
+            ->join('user_groups_list', 'groups_users.group_id', '=','user_groups_list.group_id')
+            ->select('name')
+            ->where([
+                ['user_groups_list.group_list_id','!=',Auth::id()], //groups current user is not in
+                ['groups.name', '=', $request->only(['group_name'])], //name of group they're looking to join
+                ])->get();
+
+
+        if($groups->all() != null){
+            $group = $groups[0];
+
+            $groupMemberToNotify = DB::table('users AS u')
+                                        ->join('user_groups_list', 'u.id', '=', 'user_groups_list.group_list_id')
+                                        ->join('groups', 'groups.id', '=', 'user_groups_list.id')
+                                        ->select('u.id')
+                                        ->where('groups.name', '=', $group->name)
+                                        ->get()[0];
+
+
+            return view('search-groups',['member' => $groupMemberToNotify->id]);
+        }
+
+        else{
+
+            echo "<script>";
+            echo "console.log(alert('Already In Group'));";
+            echo "window.location = '/group/join';";
+            echo "</script>";
+        }
+    }
+
+
 }
+
+?>
