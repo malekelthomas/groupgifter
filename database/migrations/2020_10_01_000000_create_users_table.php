@@ -20,13 +20,9 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->string('group_name')->nullable();
             $table->timestamps();
-            $table->integer('group_list_id')->unsigned();
             //$table->primary(['id','group_list_id']);
         });
-
-        DB::statement('ALTER TABLE  `users` DROP PRIMARY KEY , ADD PRIMARY KEY (  `id` ,  `group_list_id` ) ;');
 
     }
 

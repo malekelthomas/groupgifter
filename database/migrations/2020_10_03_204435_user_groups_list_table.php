@@ -15,8 +15,9 @@ class UserGroupsListTable extends Migration
     {
         //
         Schema::create('user_groups_list', function (Blueprint $table) {
-            $table->foreignId('group_list_id')->constrained('users');
-            $table->foreignId('group_id')->constrained('groups_users');
+            $table->id();
+            $table->foreignId('group_list_id')->references('id')->on('users');
+            $table->foreignId('group_id')->references('group_id')->on('groups_users');
         });
     }
 
