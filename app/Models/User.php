@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\JoinRequest;
 
 class User extends Authenticatable
 {
@@ -48,4 +49,6 @@ class User extends Authenticatable
     public function groupIn(){
         return $this->belongsTo('App\Models\Group');
     }
+
+
 }
