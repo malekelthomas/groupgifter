@@ -33,6 +33,8 @@ async function fetchProducts(keyword){
       });
   }
 
+
+
   var categoriesClicked = [];
   var productsClicked = {};
 
@@ -165,12 +167,10 @@ function showSlides(n) {
 }
 
   jQuery(function (){
-    var checkboxes = $("#categories");
-    var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};
+
     var seeMore = $("#seeMore");
     var append_start = 0;
     var numCats = 8;
-    var tableBody = $("#selected-cats tbody");
     var seeProducts = $("#getProducts");
 
     $(".ellipse.category").click(function(){
@@ -181,32 +181,6 @@ function showSlides(n) {
       console.log($(this).children('input').val())
       storeProductsClicked(this);
     });
-    $.each(checkboxValues, function(key, val){
-      $("#"+key).prop("checked", val);
-      if(val){
-        $("#selected-cats > tbody:last-child").append(`<tr id = ${key}><td><input type="hidden" name="categories[]" value='${key}'/>${key}</td></tr>`);
-      }
-    });
-
-    function updateStorage(){
-      $("input[type=checkbox]").each(function(){
-        checkboxValues[this.id] = this.checked;
-      })
-      localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues))
-    }
-
-    checkboxes.on("change", "input[type=checkbox]", function(){
-      if (this.checked){
-          var search = tableBody.find(`#${this.value}`);
-          if (search.length == 0){ //length is number of matched elements
-            $("#selected-cats > tbody:last-child").append(`<tr id = ${this.value}><td><input type="hidden" name="categories[]"/>${this.value}</td></tr>`);
-          }
-        }
-      if (this.checked == false){
-          tableBody.find(`#${this.value}`).remove();
-        }
-        updateStorage();
-    })
 
     seeMore.on("click", function(){
       console.log("clicked")
@@ -240,14 +214,6 @@ function showSlides(n) {
       })
     });
     }
-
-    $("#back-button").on("click", function(){
-      console.log("clicked")
-      document.getElementById("checkbox-table").style.display="block";
-      document.getElementById("products").style.display="none";
-      document.getElementById("back-to-selection").style.display="none";
-
-    })
 
 
 
