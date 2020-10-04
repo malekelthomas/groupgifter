@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Group;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class GroupController extends Controller
 {
@@ -26,6 +27,7 @@ class GroupController extends Controller
     public function create()
     {
         //
+        return view('create-groups');
     }
 
     /**
@@ -37,24 +39,25 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'name' => 'required|string',
-            'user_id' => 'required|array',
+        $request->validate(['group_name' => ['required','alpha_dash', 'max:20', 'min:10', 'unique:groups,name']]);
+        auth()->user()->update($request->only(['group_name']));
 
-        ]);
+        $group = DB::table('groups')->where('name', $request->only(['group_name']))->get(); //check if group name already exists
+        $groups_list = DB::table('user_groups_list');
+        $groups_users = DB::table('groups_users');
 
-        $group = new Group([
-            'name' => $request->get('name'),
-        ]);
 
-        $group->save();
-        foreach($request->get('user_id') as $id){
-            $user = User::findOrFail($id);
-            $user->group_id = $group->id;
-            $user->save();
+
+        if ($group->count() == 0){//if group does not exist, create one
+            $group = new group();
+            $group->name = $request->input('group_name');
+            $group->save();
+            $groups_users->insert(['group_id' => $group->id, 'user_id' => auth()->user()->id]);
+            $groups_list->insert(['group_list_id' => auth()->user()->id, 'group_id' => $groups_users->where('group_id', '=', $group->id)->get()[0]->group_id]);
+
         }
 
-        return redirect('/')->with('success', 'Group has been added');
+        return redirect('/userhome')->with('success', 'Group has been added');
 
     }
 
@@ -68,9 +71,14 @@ class GroupController extends Controller
     {
         //
 
+        $groups = DB::table('groups')
+            ->join('groups_users','groups.id','=','groups_users.group_id')
+            ->join('user_groups_list', 'groups_users.group_id', '=','user_groups_list.group_id')
+            ->select('name')
+            ->where('user_groups_list.group_list_id','=',$id)
+            ->get();
 
-
-        return view('groups',['groups' => Group::findOrFail($id)]);
+        return view('view-groups',['groups' => $groups]);
 
 
 
