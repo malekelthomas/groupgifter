@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -8,7 +9,7 @@
                 <div class="card-header">{{ __('Register Step 2 (optional)') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register.step2') }}">
+                    <form method="POST" action="/group">
                         @csrf
 
                         <div class="form-group row">
