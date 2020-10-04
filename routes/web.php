@@ -49,5 +49,10 @@ Route::post('/selectedproducts', function(){
     return view('selected-products');
 });
 
+Route::get('/group/join', [App\Http\Controllers\GroupController::class, 'join'])->name('group.join');
+
+Route::post('/group/search', [App\Http\Controllers\GroupController::class, 'search'])->name('group.search');
 
 Route::resource('group', 'App\Http\Controllers\GroupController');
+
+
