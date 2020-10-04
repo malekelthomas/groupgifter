@@ -43,11 +43,18 @@ class JoinRequest extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->from('malekelthomas97@gmail.co', 'groupgifter')
                     ->greeting($this->joinRequest['name'])
                     ->line($this->joinRequest['body'])
                     ->action($this->joinRequest['joinText'], $this->joinRequest['joinUrl'])
                     ->line('Thank you for using our application!');
+    }
+
+    public function toDatabase($notifiable){
+
+        return [
+            'joinRequest' => 'You have a request to join your group'
+        ];
+
     }
 
     public function routeNotificationForMail($notification)
