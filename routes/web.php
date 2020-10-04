@@ -55,4 +55,8 @@ Route::post('/group/search', [App\Http\Controllers\GroupController::class, 'sear
 
 Route::resource('group', 'App\Http\Controllers\GroupController');
 
+Route::get('send-notification', [App\Http\Controllers\NotificationController::class, 'sendJoinRequestNotification']);
+
+
+
 
