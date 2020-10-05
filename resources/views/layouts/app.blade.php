@@ -24,6 +24,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     groupgifter
@@ -53,8 +54,9 @@
                         @else
 
                             <li class="nav-item dropdown">
+                            <li><span class="badge badge-pill badge-dark mr-2">{{count(Auth::user()->unreadNotifications->all())}}</span></li>
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                        {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -76,6 +78,7 @@
 
                         @endguest
                     </ul>
+
                 </div>
             </div>
         </nav>
