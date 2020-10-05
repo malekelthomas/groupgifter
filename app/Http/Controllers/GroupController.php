@@ -166,7 +166,7 @@ class GroupController extends Controller
         else{
 
             echo "<script>";
-            echo "console.log(alert('Already In Group'));";
+            echo "console.log(alert('Already In Group/Group Does Not Exist'));";
             echo "window.location = '/group/join';";
             echo "</script>";
         }
