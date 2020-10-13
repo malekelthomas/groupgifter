@@ -60,6 +60,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @foreach (Auth::user()->unreadNotifications->all() as $notification)
+
+                                    <a class="dropdown-item" href="#" style="color: black; text-align:center;" onclick=<?php $notification->markAsRead();?>>{{$notification->data["joinRequest"]}}</a>
+
+                                    @endforeach
                                     <a class="dropdown-item" href="/userhome">Profile</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
