@@ -9,6 +9,14 @@ function submitSearch(){
 
   }
 
+function groupSearch(){
+    var form = document.getElementById("userGroupdForm")
+
+    if(form !== null){
+        form.submit();
+    }
+    console.log(form)
+}
 
 jQuery(function (){
 
