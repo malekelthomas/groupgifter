@@ -172,6 +172,27 @@ class GroupController extends Controller
         }
     }
 
+    /**
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    public function view_group(Request $request){
+
+        $groupMembers = DB::table('users AS u') //view all members in group that are not the current user
+                                        ->join('user_groups_list', 'u.id', '=', 'user_groups_list.group_list_id')
+                                        ->join('groups', 'groups.id', '=', 'user_groups_list.id')
+                                        ->select('u.name')
+                                        ->where([
+                                            ['groups.name', '=', $request->only(['group'])],
+                                            ['u.id','!=',Auth::id()],
+                                        ])->get()->all();
+
+
+        return view('group-members')->with('members',$groupMembers);
+
+    }
+
 
 }
 
