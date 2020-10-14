@@ -64,7 +64,7 @@
                                         @foreach (Auth::user()->unreadNotifications->all() as $notification)
 
                                         <input type="hidden" name="notification" id="{{$notification->id}}">
-                                        <a class="dropdown-item" href="#" style="color: black; text-align:center;" onclick='<?php $notification->markAsRead();?>this.form.submit();'>{{$notification->data["joinRequest"]}}</a>
+                                        <a class="dropdown-item" href="#" style="color: black; text-align:center;" onclick='<?php $notification->markAsRead();?>this.form.submit();'>{{$notification->data["joinRequest"]." from ".$notification->data["from"]}}</a>
 
                                         @endforeach
                                     </form>
