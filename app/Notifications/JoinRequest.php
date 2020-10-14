@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Auth;
 
 class JoinRequest extends Notification
 {
@@ -52,7 +53,8 @@ class JoinRequest extends Notification
     public function toDatabase($notifiable){
 
         return [
-            'joinRequest' => 'You have a request to join your group'
+            'joinRequest' => 'You have a request to join your group',
+            'from' => Auth::user()->name,
         ];
 
     }
