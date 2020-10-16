@@ -32,7 +32,7 @@ class JoinRequest extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail', 'database'];
+        return ['database'];
     }
 
     /**
@@ -52,9 +52,12 @@ class JoinRequest extends Notification
 
     public function toDatabase($notifiable){
 
+        $value = session('groupToJoin');
+
         return [
             'joinRequest' => 'You have a request to join your group',
             'from' => Auth::user()->name,
+            "toGroup" => $value,
         ];
 
     }
