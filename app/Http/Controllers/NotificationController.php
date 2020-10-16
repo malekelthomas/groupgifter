@@ -34,6 +34,7 @@ class NotificationController extends Controller
     public function sendJoinRequestNotification(Request $request){
 
 
+        session(['groupToJoin' => $request->group]);
 
         $userSchema = User::find($request->member);
 
