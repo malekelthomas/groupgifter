@@ -59,6 +59,8 @@ Route::post('send-notification', [App\Http\Controllers\NotificationController::c
 
 Route::post('/group/viewmembers', [App\Http\Controllers\GroupController::class, 'view_group']);
 
+Route::post('/notification/show', [App\Http\Controllers\NotificationController::class, 'show']);
+
 
 
 
