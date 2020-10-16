@@ -1,4 +1,3 @@
-
 function submitSearch(){
     var form = document.getElementById("notificationForm")
 
@@ -9,11 +8,18 @@ function submitSearch(){
 
   }
 
-function groupSearch(){
-    var form = document.getElementById("userGroupdForm")
+function joinRequestSubmit(){
+    var form = document.getElementById("joinRequests")
 
     if(form !== null){
-        form.submit();
+        var joinNotifications = document.getElementsByClassName("joinlink")
+        for(i = 0; i < joinNotifications.length; i++){
+            console.log(joinNotifications[i])
+            joinNotifications[i].addEventListener("click", function (){
+                console.log(this)
+                form.submit();
+            });
+        }
     }
     console.log(form)
 }
@@ -21,5 +27,6 @@ function groupSearch(){
 jQuery(function (){
 
     submitSearch();
+    joinRequestSubmit();
 
 })
