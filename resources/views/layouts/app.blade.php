@@ -60,11 +60,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <form method="POST" action="/notification/show">
+                                    <form id="joinRequests" method="POST" action="/notification/show">
+                                        @csrf
                                         @foreach (Auth::user()->unreadNotifications->all() as $notification)
 
-                                        <input type="hidden" name="notification" id="{{$notification->id}}">
-                                        <a class="dropdown-item" href="#" style="color: black; text-align:center;" onclick='<?php $notification->markAsRead();?>this.form.submit();'>{{$notification->data["joinRequest"]." from ".$notification->data["from"]}}</a>
+                                    <input type="hidden" name="notification" id="{{$notification->id}}" value="{{$notification->id}}">
+                                        <a class="joinlink dropdown-item" href="#" style="color: black; text-align:center;">{{$notification->data["joinRequest"]." from ".$notification->data["from"]}}</a>
 
                                         @endforeach
                                     </form>
