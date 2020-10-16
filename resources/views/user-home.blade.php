@@ -23,18 +23,18 @@ $id = Auth::id();
     </div>
     <div class="w-100" style="height: 100px;"></div>
     <div class="row justify-content-center">
-        <div class="user-home-btn col-sm-2 mb-3">
+        <button class="user-home-btn col-sm-2 mb-3">
            <a href="/choosecategories" style="color: #212529"><p style="margin-top: 10%; text-align:center;"><strong>CHOOSE PRODUCTS</strong></p></a>
-        </div>
-        <div class="user-home-btn col-sm-2 offset-sm-1 mb-3">
+        </button>
+        <button class="user-home-btn col-sm-2 offset-sm-1 mb-3">
             <a href="/group/<? echo $id;?>" style="color: #212529"><p style="margin-top: 10%; text-align:center;"><strong>VIEW GROUPS</strong></p></a>
-        </div>
-        <div class="user-home-btn col-sm-2 offset-sm-1 mb-3">
+        </button>
+        <button class="user-home-btn col-sm-2 offset-sm-1 mb-3">
             <a href="/group/create" style="color: #212529"><p style="margin-top: 10%; text-align:center;"><strong>CREATE GROUP</strong></p></a>
-        </div>
-        <div class="user-home-btn col-sm-2 offset-sm-1 mb-3">
+        </button>
+        <button class="user-home-btn col-sm-2 offset-sm-1 mb-3">
             <a href="/group/join" style="color: #212529"><p style="margin-top: 10%; text-align:center;"><strong>JOIN GROUP</strong></p></a>
-        </div>
+        </button>
 
     </div>
 
