@@ -160,7 +160,7 @@ class GroupController extends Controller
                                         ->get()[0];
 
 
-            return view('search-groups',['member' => $groupMemberToNotify->id]);
+            return view('search-groups',['member' => $groupMemberToNotify->id, 'group' => $request->group_name]);
         }
 
         else{

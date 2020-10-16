@@ -9,6 +9,7 @@
 
 
     <input type="hidden" id="{{$member}}" name="member" value="{{$member}}">
+    <input type="hidden" id="{{$group}}" name="group" value="{{$group}}">
 
 
 </form>
