@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Notification;
 use App\Notifications\JoinRequest;
+use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Facades\Auth;
 
 class NotificationController extends Controller
 {
@@ -26,7 +28,13 @@ class NotificationController extends Controller
      * @param  \Illuminate\Http\Request
      * @return \Illuminate\Http\Response
      */
+
+
+
     public function sendJoinRequestNotification(Request $request){
+
+
+        session(['groupToJoin' => $request->group]);
 
         $userSchema = User::find($request->member);
 
@@ -42,12 +50,52 @@ class NotificationController extends Controller
 
         return redirect('/userhome');
 
+    }
+
+
+    /**
+     * Send notification to user with id
+     *
+     * @param  \Illuminate\Http\Request
+     * @return \Illuminate\Http\Response
+     */
+
+     public function show(Request $request){
+
+        $notificationIdFromRequest = $request->notification;
+        $name = null;
+        $groupToJoin = null;
 
 
 
+        foreach (Auth::user()->unreadNotifications->all() as $notification){
+
+            if ($notification->id == $notificationIdFromRequest){
+                $notification->markAsRead();
+                $name = $notification->data["from"];
+                $groupToJoin = $notification->data["toGroup"];
+            }
+
+        }
+
+        //$notification->markAsRead();
+
+        //$notificationFrom = $notification["from"];
+
+
+        $data = [
+
+            'name' => $name,
+            'groupToJoin' => $groupToJoin,
+
+        ];
+
+        return view('request-notification')->with($data);
 
 
 
 
     }
+
+
 }
