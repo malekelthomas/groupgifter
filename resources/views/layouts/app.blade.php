@@ -65,7 +65,7 @@
                                         @foreach (Auth::user()->unreadNotifications->all() as $notification)
 
                                     <input type="hidden" name="notification" id="{{$notification->id}}" value="{{$notification->id}}">
-                                        <a class="joinlink dropdown-item" href="#" style="color: black; text-align:center;">{{$notification->data["joinRequest"]." from ".$notification->data["from"]}}</a>
+                                        <a class="joinlink dropdown-item" href="#" style="color: black; text-align:center;">{{$notification->data["joinRequest"]." from ".$notification->data["fromName"]}}</a>
 
                                         @endforeach
                                     </form>
