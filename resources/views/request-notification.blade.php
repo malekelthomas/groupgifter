@@ -8,20 +8,18 @@
     <div class="w-100" style="height: 100px;"></div>
     <div class="w-100" style="height: 100px;"></div>
     <div class="row justify-content-center">
-        <p id="user-name">{{$name}}</p>
+        <p id="user-name"> Would you like to add {{$name}} to {{$groupToJoin}}?</p>
+        <div class="w-100" style="height: 100px;"></div>
+        <div class="w-100" style="height: 100px;"></div>
     </div>
 
-    <div class="w-100" style="height: 100px;"></div>
-    <div class="row justify-content-center">
-        <p id="user-name">Add to your group {{$groupToJoin}}?</p>
-    </div>
-    <div class="w-100" style="height: 100px;"></div>
+
     <div class="row justify-content-center">
         <button class="user-home-btn col-sm-2 mb-3">
-            <a href="" style="color: #212529"><p style="margin-top: 10%; text-align:center;"><strong>ACCEPT</strong></p></a>
+            <a href="#" style="color: #212529"><p style="margin-top: 10%; text-align:center;"><strong>ACCEPT</strong></p></a>
         </button>
         <button class="user-home-btn col-sm-2 offset-sm-1 mb-3">
-            <a href="" style="color: #212529"><p style="margin-top: 10%; text-align:center;"><strong>DENY</strong></p></a>
+            <a href="#" style="color: #212529"><p style="margin-top: 10%; text-align:center;"><strong>DENY</strong></p></a>
         </button>
     </div>
 </div>
