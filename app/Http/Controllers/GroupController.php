@@ -149,7 +149,12 @@ class GroupController extends Controller
                 ])->get();
 
 
-        if($groups->all() != null){
+        $groupId = DB::table('groups')
+                ->select('id')
+                ->where('groups.name', '=', $request->group_name)
+                ->get();
+
+        if($groups->all() != null && $groupId != null){
             $group = $groups[0];
 
             $groupMemberToNotify = DB::table('users AS u')
@@ -159,8 +164,10 @@ class GroupController extends Controller
                                         ->where('groups.name', '=', $group->name)
                                         ->get()[0];
 
+            $groupId[0]->id;
 
-            return view('search-groups',['member' => $groupMemberToNotify->id, 'group' => $request->group_name]);
+
+            return view('search-groups',['member' => $groupMemberToNotify->id, 'group' => $request->group_name, 'groupId' => $groupId]);
         }
 
         else{
@@ -177,7 +184,7 @@ class GroupController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function view_group(Request $request){
+    public function viewGroup(Request $request){
 
         $groupMembers = DB::table('users AS u') //view all members in group that are not the current user
                                         ->join('user_groups_list', 'u.id', '=', 'user_groups_list.group_list_id')
@@ -192,6 +199,21 @@ class GroupController extends Controller
         return view('group-members')->with('members',$groupMembers);
 
     }
+
+    /**
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+     public function addToGroup(Request $request){
+        //
+        $userId = $request->id;
+        $groupToAddTo = $request->groupToAddTo;
+
+        DB::table('user_groups_list')->insert(['group_list_id' => $userId, 'group_id' => $groupToAddTo]);
+
+        return redirect('/userhome');
+     }
 
 
 }
