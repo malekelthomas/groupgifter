@@ -52,12 +52,17 @@ class JoinRequest extends Notification
 
     public function toDatabase($notifiable){
 
-        $value = session('groupToJoin');
+        $groupToJoin= session('groupToJoin');
+        $groupToJoinId= session('groupToJoinId');
+
 
         return [
             'joinRequest' => 'You have a request to join your group',
-            'from' => Auth::user()->name,
-            "toGroup" => $value,
+            'fromName' => Auth::user()->name,
+            'fromId' => Auth::id(),
+            "toGroup" => $groupToJoin,
+            "groupId" => $groupToJoinId,
+
         ];
 
     }

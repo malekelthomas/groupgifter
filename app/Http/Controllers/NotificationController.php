@@ -35,6 +35,7 @@ class NotificationController extends Controller
 
 
         session(['groupToJoin' => $request->group]);
+        session(['groupToJoinId' => $request->groupId]);
 
         $userSchema = User::find($request->member);
 
@@ -64,7 +65,9 @@ class NotificationController extends Controller
 
         $notificationIdFromRequest = $request->notification;
         $name = null;
+        $id = null;
         $groupToJoin = null;
+        $groupToJoinId = null;
 
 
 
@@ -72,8 +75,10 @@ class NotificationController extends Controller
 
             if ($notification->id == $notificationIdFromRequest){
                 $notification->markAsRead();
-                $name = $notification->data["from"];
+                $name = $notification->data["fromName"];
+                $id = $notification->data["fromId"];
                 $groupToJoin = $notification->data["toGroup"];
+                $groupToJoinId = $notification->data["groupId"];
             }
 
         }
@@ -86,7 +91,9 @@ class NotificationController extends Controller
         $data = [
 
             'name' => $name,
+            'fromId' => $id,
             'groupToJoin' => $groupToJoin,
+            'groupToJoinId' => $groupToJoinId,
 
         ];
 
