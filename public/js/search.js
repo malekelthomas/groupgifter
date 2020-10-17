@@ -24,9 +24,23 @@ function joinRequestSubmit(){
     console.log(form)
 }
 
+function acceptJoinRequestSubmit(){
+    var form = document.getElementById("addToGroupForm")
+
+    if(form !== null){
+        var submitButton = document.getElementById("accept")
+        submitButton.addEventListener("click", function (){
+                console.log(this)
+                form.submit();
+            });
+        }
+        console.log(form)
+    }
+
 jQuery(function (){
 
     submitSearch();
     joinRequestSubmit();
+    acceptJoinRequestSubmit();
 
 })
