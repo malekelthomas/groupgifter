@@ -159,7 +159,7 @@ class GroupController extends Controller
 
             $groupMemberToNotify = DB::table('users AS u')
                                         ->join('user_groups_list', 'u.id', '=', 'user_groups_list.group_list_id')
-                                        ->join('groups', 'groups.id', '=', 'user_groups_list.id')
+                                        ->join('groups', 'groups.id', '=', 'user_groups_list.group_id')
                                         ->select('u.id')
                                         ->where('groups.name', '=', $group->name)
                                         ->get()[0];
@@ -188,7 +188,7 @@ class GroupController extends Controller
 
         $groupMembers = DB::table('users AS u') //view all members in group that are not the current user
                                         ->join('user_groups_list', 'u.id', '=', 'user_groups_list.group_list_id')
-                                        ->join('groups', 'groups.id', '=', 'user_groups_list.id')
+                                        ->join('groups', 'groups.id', '=', 'user_groups_list.group_id')
                                         ->select('u.name')
                                         ->where([
                                             ['groups.name', '=', $request->only(['group'])],
