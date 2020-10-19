@@ -24,7 +24,7 @@
                 <a href="#" style="color: #212529"><p style="margin-top: 10%; text-align:center;"><strong>ACCEPT</strong></p></a>
             </button>
         <button class="user-home-btn col-sm-2 offset-sm-1 mb-3">
-            <a href="#" style="color: #212529"><p style="margin-top: 10%; text-align:center;"><strong>DENY</strong></p></a>
+            <a href="/userhome" style="color: #212529"><p style="margin-top: 10%; text-align:center;"><strong>DENY</strong></p></a>
         </button>
     </div>
 </div>
