@@ -164,7 +164,7 @@ class GroupController extends Controller
                                         ->where('groups.name', '=', $group->name)
                                         ->get()[0];
 
-            $groupId[0]->id;
+            $groupId = $groupId[0]->id;
 
 
             return view('search-groups',['member' => $groupMemberToNotify->id, 'group' => $request->group_name, 'groupId' => $groupId]);
@@ -210,7 +210,16 @@ class GroupController extends Controller
         $userId = $request->id;
         $groupToAddTo = $request->groupToAddTo;
 
-        DB::table('user_groups_list')->insert(['group_list_id' => $userId, 'group_id' => $groupToAddTo]);
+        $user_group = DB::table('user_groups_list')
+                        ->select('group_list_id', 'group_id')
+                        ->where(['group_list_id' => $userId, 'group_id' => $groupToAddTo])
+                        ->get()
+                        ->all();
+
+        if($user_group == null){
+            DB::table('user_groups_list')->insertOrIgnore(['group_list_id' => $userId, 'group_id' => $groupToAddTo]);
+            DB::table('groups_users')->insertOrIgnore(['group_id'=> $request->groupToAddTo,'user_id' => $userId]);
+        }
 
         return redirect('/userhome');
      }
