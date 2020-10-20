@@ -189,7 +189,7 @@ class GroupController extends Controller
         $groupMembers = DB::table('users AS u') //view all members in group that are not the current user
                                         ->join('user_groups_list', 'u.id', '=', 'user_groups_list.group_list_id')
                                         ->join('groups', 'groups.id', '=', 'user_groups_list.group_id')
-                                        ->select('u.name')
+                                        ->select('u.name', 'u.id')
                                         ->where([
                                             ['groups.name', '=', $request->only(['group'])],
                                             ['u.id','!=',Auth::id()],
