@@ -65,6 +65,10 @@ Route::post('/group/addToGroup', [App\Http\Controllers\GroupController::class, '
 
 Route::post('/notification/show', [App\Http\Controllers\NotificationController::class, 'show']);
 
+Route::get('/viewgroupmemberproducts', function(){
+    return view('view-group-member-products');
+});
+
 
 
 
