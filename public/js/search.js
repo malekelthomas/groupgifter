@@ -37,10 +37,33 @@ function acceptJoinRequestSubmit(){
         console.log(form)
     }
 
+function groupMembersSubmit(){
+    var form = document.getElementById("groupMembersForm")
+    var members = document.querySelectorAll(".member")
+    if(form !== null){
+        members.forEach(element => element.addEventListener("change", function (){
+            if (this.checked){
+                console.log(this.value)
+                $.ajax({
+                    url: `/pickedCategory/${this.value}`,
+                    type: "GET",
+                    success: function (result){
+                        var values = ""
+                        result.forEach(element => values+=element["category"]+=" ")
+                        console.log(values)
+                        $(".selector").html(`<h1 style='color:white'>${values}</h1`);
+                    }
+
+                })
+            }
+        }))
+    }
+}
+
 jQuery(function (){
 
     submitSearch();
     joinRequestSubmit();
     acceptJoinRequestSubmit();
-
+    groupMembersSubmit();
 })
