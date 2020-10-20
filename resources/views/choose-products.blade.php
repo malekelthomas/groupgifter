@@ -47,7 +47,7 @@
     </div>
     <div class="w-100" style="height: 100px;"></div>
     <div class="row justify-content-center">
-      <button class="next-button-button" onclick=submitProducts(event);>NEXT</button>
+      <a href="/userhome"><button class="next-button-button" onclick=submitProducts(event);>NEXT</button></a>
     </div>
 
 
