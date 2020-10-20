@@ -1,7 +1,8 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <?php
-    session_start();
+
+session_start();
     $post_data = $_POST;
     //echo var_dump($_POST);
     $data = json_encode($post_data);
@@ -27,7 +28,7 @@
 
                             elseif(strpos($product, ".jpg") !== false){
                                 if (is_array($product) == false){
-                                    //echo "$key,$stuff\n";
+                                    echo "$key,$product\n";
                                     if ($img_arr["$key"] == null){
                                         $img_arr["$key"] = array();
                                         }
@@ -45,4 +46,5 @@
     }
     //echo var_dump($img_arr);
     $_SESSION["images"] = $img_arr;
+    //echo var_dump($_SESSION);
 ?>

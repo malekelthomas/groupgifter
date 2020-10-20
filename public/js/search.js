@@ -37,7 +37,7 @@ function acceptJoinRequestSubmit(){
         console.log(form)
     }
 
-function groupMembersSubmit(){
+async function groupMembersSubmit(){
     var form = document.getElementById("groupMembersForm")
     var members = document.querySelectorAll(".member")
     if(form !== null){
@@ -47,10 +47,34 @@ function groupMembersSubmit(){
                 $.ajax({
                     url: `/pickedCategory/${this.value}`,
                     type: "GET",
-                    success: function (result){
+                    success: async function (result){
+                        console.log(result)
                         var values = ""
-                        result.forEach(element => values+=element["category"]+=" ")
+                        var products = {}
+
+
+                        /* result.forEach(element => values+=`${element["category"]} `) */
+                        result.forEach(async function(element){
+                            products[`${element["category"]}`] = await fetchProducts(`${element["category"]}`)
+                        })
                         console.log(values)
+                        console.log(products);
+
+                        $.ajax({
+                            type:"POST",
+                            headers: {
+                              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            url: "/products",
+                            data: products,
+                            success: function(data){
+                              console.log(data);
+                              //window.location = '/viewgroupmemberproducts'
+                            },
+                            error: function(data){
+                              console.log("error: ",data)
+                            }
+                          })
                         $(".selector").html(`<h1 style='color:white'>${values}</h1`);
                     }
 
