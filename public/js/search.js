@@ -43,9 +43,10 @@ async function groupMembersSubmit(){
     if(form !== null){
         members.forEach(element => element.addEventListener("change", function (){
             if (this.checked){
-                console.log(this.value)
+                let userid = this.value
+                console.log(userid)
                 $.ajax({
-                    url: `/pickedCategory/${this.value}`,
+                    url: `/pickedCategory/${userid}`,
                     type: "GET",
                     success: async function (result){
                         console.log(result)
@@ -53,14 +54,29 @@ async function groupMembersSubmit(){
                         var products = {}
 
 
-                        /* result.forEach(element => values+=`${element["category"]} `) */
+                        result.forEach(element => values+=`${element["category"]} `)
                         result.forEach(async function(element){
                             products[`${element["category"]}`] = await fetchProducts(`${element["category"]}`)
+                            $.ajax({
+                                type:"POST",
+                                headers: {
+                                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                },
+                                url: "/products",
+                                data: products,
+                                success: function(data){
+                                  console.log(data);
+                                  window.location = `viewgroupmember/${userid}`
+                                },
+                                error: function(data){
+                                  console.log("error: ",data)
+                                }
+                              })
                         })
                         console.log(values)
                         console.log(products);
 
-                        $.ajax({
+                       /*  $.ajax({
                             type:"POST",
                             headers: {
                               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -74,7 +90,7 @@ async function groupMembersSubmit(){
                             error: function(data){
                               console.log("error: ",data)
                             }
-                          })
+                          }) */
                         $(".selector").html(`<h1 style='color:white'>${values}</h1`);
                     }
 
