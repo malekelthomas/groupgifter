@@ -225,6 +225,20 @@ class GroupController extends Controller
      }
 
 
+     /**
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+
+     public function viewGroupMember($id){
+        $user = DB::table('users')
+                    ->select('name')
+                    ->where(['id' => $id])
+                    ->get()[0]
+                    ->name;
+        return view('view-group-member-products')->with('name', $user);
+     }
+
 }
 
 ?>
